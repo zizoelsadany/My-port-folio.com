@@ -483,7 +483,13 @@ section .more #mo{
     }
     #mo{
         margin-right: 200rem;
-    }
+        }
+     #contact .row img {
+            max-width: 200px;
+
+         
+        }
+        
      
 
 
