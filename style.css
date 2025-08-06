@@ -76,46 +76,75 @@ header{
     height: 100vh;
 
 }
-header .navbar{
-    background-color: #fff;
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  background-color: rgba(255, 255, 255, 0.1); /* شفاف شوية */
+  backdrop-filter: blur(5px); /* تأثير زجاج مملح */
+  padding: 15px 50px;
+  transition: all 0.3s ease;
+  background-color: #fff;
     border-bottom: 1px solid #ccc;
     position: fixed;
     width: 100%;
     z-index: 1;
 
 }
-header .navbar nav{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    max-width: 1100px;
-    margin: auto;
-    padding: 1.5rem 2rem;
 
-
+.navbar nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
-nav .logo{
-    color: var(--primary-color);
+
+.navbar .logo {
+  color: var(--primary-color);
     font-size: 24;
     font-weight: 600;
 }
+.logo span {
+  color: var(--secondery-color);
+}
 
-
-
-
-header .navbar nav ul {
-    display: flex;
+.navbar ul {
+  list-style: none;
+  display: flex;
+  gap: 30px;
+  display: flex;
     justify-content: center;
     align-items: center;
     
-
-
-
 }
-header .navbar nav ul a {
-    margin: 0 15px;
+
+.navbar ul li a {
+ margin: 0 15px;
     color: var(--primary-color);
-    font-weight: 600;
+    font-weight: 600;  text-decoration: none;
+  font-size: 1rem;
+  transition: color 0.3s ease;
+}
+
+.navbar ul li a:hover {
+  color: #00bfff; /* لون أزرق فاتح عند التحويم */
+}
+
+/* تقليل الـ padding عند التمرير */
+.navbar.scrolled {
+  padding: 10px 50px;
+  background-color: rgba(255, 255, 255, 0.8);
+  color: #333;
+}
+
+.navbar.scrolled .logo,
+.navbar.scrolled ul li a {
+  color: #333;
+}
+
+.navbar.scrolled ul li a:hover {
+  color: #0d47a1;
 }
 header .header-content{
     display: grid;
@@ -186,6 +215,10 @@ header .header-content img{
     letter-spacing: 1px;
 
 }
+.menu-toggle {
+  display: none; /* افتراضياً مخفي */
+}
+
 #about hr,
 #skills hr,
 #services hr,
@@ -343,17 +376,22 @@ header .header-content img{
     color: var(--secondery-color);
     font: weight 600px;
 }
-/*portfolio end*/
-section .more #mo{
-    padding: 0;
-    margin: 0;
-    margin-left:37rem;
-    font-size: 20px;
-    font-weight: 600;
-    background: var(--primary-color);
-    color: var(--secondery-color);
-    border-radius: 10px;
-    transition: all 0.10 ease;
+
+.login-btn:hover {
+  background-color: #d99a00;
+}
+.login-btn {
+  padding: 10px 20px;
+  background-color: var(--secondery-color);
+  color: white;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: 0.3s;
+    font-size: 25px;
+display: block;
+  margin: 0 auto;
+  width: fit-content  
 }
 #mo:hover{
     transform: scale(1.9);
@@ -394,11 +432,24 @@ section .more #mo{
     padding: 1rem 0;
     text-align: center;
 }
+@media (max-width: 768px) {
+    #contact .row {
+        grid-template-columns: 1fr;
+        padding: 2rem 1rem;
+    }
+
+    #contact .row img {
+        width: 100%;
+        max-width: 300px;
+        margin: auto;
+        display: block;
+    }
+}
 /*ipad respnsiv*/
 @media(max-width: 768px){
    header .navbar nav{
     display: block;
-    text-align: center;
+    text-align:center;
    }
    header .navbar nav ul {
     margin-top: 20px;
@@ -440,8 +491,9 @@ section .more #mo{
         align-items: center;
         
     }
-    
 }
+    
+
 /*mobil responciv*/
 @media(max-width: 528px){
     header .navbar nav{
@@ -457,10 +509,11 @@ section .more #mo{
         font-size: 16px;
     }
     header .header-content img {
-        margin-bottom: 700rem;
-        width: 300px;
-        margin-right: 20rem;
-    }
+      width: 300px;         /* العرض المطلوب */
+    display: block;
+    margin: -2rem auto 1rem auto; /* ترفع الصورة فوق شوية وتتوسط */
+    max-width: 100%;      
+  }
     #about h2,
     #skills h2,
     #services h2,
@@ -482,15 +535,104 @@ section .more #mo{
         grid-template-columns: 1fr
     }
     #mo{
-        margin-right: 200rem;
-        }
-     #contact .row img {
-            max-width: 200px;
+        margin-right: 400rem;
+}       
+ #contact .row img {
+      
+   max-width: 200px;
+    }
+}
 
-         
-        }
-        
-     
+/* Reset styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
+
+
+.network-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  background-color: #0d47a1; /* Dark blue background */
+  color: white;
+  overflow-x: hidden;
+  font-family: Arial, sans-serif;
+}
+
+#networkCanvas {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.home {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.home h1 {
+  font-size: 48px;
+  animation: fadeIn 2s ease-in-out;
+    color: white;
 
 }
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+/* --- Navbar ثابت في الأعلى --- */
+@media (max-width: 991px) {
+  .navbar nav {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .navbar ul {
+    flex-direction: column;
+    width: 100%;
+    display: none; /* هتظهر فقط عند الضغط */
+    margin-top: 15px;
+  }
+
+  .navbar ul.show {
+    display: flex;
+  }
+
+  .menu-toggle {
+    display: block;
+    font-size: 2rem;
+    cursor: pointer;
+    color: var(--primary-color);
+    margin: 0; /* شيل المارجن اللي بتلخبط */
+  }
+}
+@media (max-width: 991px) {
+  .navbar {
+    padding: 15px 20px;
+  }
+
+  .navbar ul li a {
+    padding: 10px 0;
+    width: 100%;
+    display: block;
+  }
+}
+ #services .heading img {
+    margin-left: 0; /* نشيل المسافة الكبيرة */
+    display: block;
+    margin: 0 auto; /* نخليها في المنتصف */
+  }
