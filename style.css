@@ -636,3 +636,27 @@ section .more #mo{
     display: block;
     margin: 0 auto; /* نخليها في المنتصف */
   }
+ @media (max-width: 528px) {
+  .navbar nav {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .navbar .logo {
+    order: 1;
+    margin-right: auto; /* تدفع اللوجو للشمال */
+  }
+
+  .menu-toggle {
+    order: 2;
+    margin-left: auto; /* تدفع المنيو لليمين */
+  }
+}
+
+@media (max-width: 528px) {
+  header {
+    height: 60vh; /* بدل 100vh */
+  }
+}
