@@ -9,36 +9,13 @@
     <!--favicon-->
     <link rel="shortcut icon" href="1000055553-removebg-preview.png" type="image/x-icon">
     <script src="jquery-3.6.0.min.js"></script>
-    <script>
-$(document).ready(function(){
-        $('#b1').click(function(){
-            $('body').css({
-                                'color':'black',
-                                'bacground':'white'
-                                
-            });
-        })
-});
-$(document).ready(function(){
-    $('#b2').click(function(){
-            $('body').css({
-                                'color':'white',
-                                'bacground':'black'
-                                
-            });
-     })
-});
-        
-
-    </script>
 </head>
 <body>
-
-<!--header start-->
-    <header id="Home">
-        <div class="navbar">
+    <div class="navbar">
             <nav>
-                <a class="logo" href="#" > ZIZO ELSADANY</a>
+                <span class="menu-toggle">&#9776;</span>
+
+                <a class="logo" href="#" > ZIZO <span>ELSADANY</span></a>
                 <ul>
                     <li><a href="#Home"> Home</a></li>
                     <li><a href="#about"> About</a></li>
@@ -49,6 +26,18 @@ $(document).ready(function(){
                 </ul> 
             </nav>
          </div>
+<div class="network-bg">
+    <canvas id="networkCanvas"></canvas>
+  </div>
+         </div>
+  <!-- Main Content -->
+  <section id="home" class="home">
+    <h1>Hello There!</h1>
+  </section>
+<!--header start-->
+
+    <header id="Home">
+        
             <div class="header-content">
                 <div class="content-text">
                     <p><span class="text-primary">Hi There, i’m</span></p>
@@ -253,7 +242,7 @@ $(document).ready(function(){
         <!--port folilo end-->
         <section id="more">
             <div class="more item">
-                <a href="more project.html"><span class="text-primary"> <button id="mo">more project</button>  </span> </a>
+      <li><a href="more project.html" class="login-btn">more project</a></li>
                
 
             </div>
@@ -278,5 +267,7 @@ $(document).ready(function(){
     <!--fotter-->
     <footer id="footer"><p>&copy; 2025 / All rights reserved</p>
     </footer>
+      <script src="script.js"></script>
+      
 </body>
 </html>
